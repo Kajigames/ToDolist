@@ -3,6 +3,7 @@ import RealmSwift
 import NotificationCenter
 
 class InfoHelper {
+
     let realm = try! Realm()
     
     //入力された項目(title)や通知の日付(datePicke.date)をRealmに保存する処理
@@ -21,6 +22,7 @@ class InfoHelper {
         //通知を設定するメソッドを読み込む
         setNotificationCenter(item: item)
     }
+    
     //DatePickerで取得した日時をString(文字列型)に変換する処理
     func dateToString(date:Date) -> String {
         //itemListのrow番目の日付(date)を"月/日 時：分"の形で表示するためにフォーマット変換する
@@ -43,6 +45,7 @@ class InfoHelper {
         content.title = item.title
         //通知音を設定(.defaultでデフォルトの通知音)
         content.sound = .default
+     
         //ここまでで設定したデータを元にUNNotificationRequestのインスタンスを作成
         let request = UNNotificationRequest(identifier: item.id, content: content, trigger: trigger)
         //通知をNotificationCenterに追加する処理
