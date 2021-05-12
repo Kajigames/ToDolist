@@ -57,7 +57,7 @@ class MenuView: UIViewController, MFMailComposeViewControllerDelegate {
     
     //"Privacy Policy"ボタンタップでサファリ起動→プラポリ表示
     @IBAction func onPrivacyPolicy(_ sender: Any) {
-        let url = NSURL(string: "PrivacyPolicyサイトのURL")
+        let url = NSURL(string: "PrivacyPolicyページのURL")
         if UIApplication.shared.canOpenURL(url! as URL){
             UIApplication.shared.open(url! as URL, options: [:], completionHandler: nil)
         }
@@ -66,7 +66,7 @@ class MenuView: UIViewController, MFMailComposeViewControllerDelegate {
     
     //"お問い合わせ"タップでActionsheetを出現、メールORサイトへの書き込みを選択させる
     @IBAction func onContactUs(_ sender: Any) {
-        let url = NSURL(string: "お問い合わせ用サイトのURL")
+        let url = NSURL(string: "よくあるご質問ページのURL")
         
         // styleをActionSheetに設定
         let alertSheet = UIAlertController(title: "お問い合わせ", message: nil, preferredStyle: UIAlertController.Style.actionSheet)
@@ -105,8 +105,8 @@ class MenuView: UIViewController, MFMailComposeViewControllerDelegate {
             }
 
             let mailViewController = MFMailComposeViewController()
-            let toRecipients = ["宛先にしたいメールアドレス"]
-            let NoInt = Int.random(in: 0001...9999)　//件名にランダムな数字を当てるための変数
+            let toRecipients = ["宛先に指定するアドレス"]
+            let NoInt = Int.random(in: 0001...9999)
 
             mailViewController.mailComposeDelegate = self
             mailViewController.setSubject("【お問い合わせ】No.\(NoInt)")
