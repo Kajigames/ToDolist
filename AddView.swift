@@ -8,6 +8,7 @@ class AddView: UIViewController {
     
     let realm = try! Realm()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,7 +26,7 @@ class AddView: UIViewController {
         view.endEditing(true)
     }
     
-    @IBAction func onAddButton(_ sender: Any) {
+    @IBAction func onAddButton(_ sender: UIButton) {
         
         //項目欄のテキストを格納する変数
         let koumoku = textField.text!
@@ -39,7 +40,7 @@ class AddView: UIViewController {
         InfoHelper().save(title:textField.text! ,date:datePicker.date)
         //画面を閉じる処理。animated:trueでアニメーションをつける
         //completion:nilで閉じる時に何も処理を行わない
-        dismiss(animated: true, completion: nil)
+            dismiss(animated: true, completion: nil)
     }
     }
     
@@ -52,5 +53,9 @@ class AddView: UIViewController {
         //アラートを表示
         present(dialog,animated: true,completion: nil)
     }
- 
+    //キャンセルボタンを押したときの処理
+    @IBAction func cancelButton(_ sender: Any) {
+        //AddViewを閉じる(何も処理を行わない)
+        dismiss(animated: true, completion: nil)
+    }
 }
